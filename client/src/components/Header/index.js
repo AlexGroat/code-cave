@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
 
-const Header = () => {
+const NavBar = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -41,4 +41,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default NavBar;

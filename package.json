@@ -17,6 +17,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "moment": "^2.29.1",
     "styled-components": "^5.3.3"
   }
 }
