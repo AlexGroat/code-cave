@@ -1,18 +1,25 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User, Post } = require('../models');
-const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require("apollo-server-express");
+const { User, Post } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('posts');
+      return User.find().populate("posts");
     },
 
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('posts');
+      return User.findOne({ username }).populate("posts");
     },
 
-  },   
+    getPosts: async () => {
+      return await Post.find();
+    },
+
+    getPost: async (parent, { _id }) => {
+      return await Post.findById(_id).populate("comments")
+    }
+  },
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -25,27 +32,19 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+        throw new AuthenticationError("No user found with this email address");
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(user);
 
       return { token, user };
     },
-
-    createComment: async (parent, { postId, body }, context) => {
-      if (context.user) {
-
-      }
-    }
-
-
   },
 };
 
