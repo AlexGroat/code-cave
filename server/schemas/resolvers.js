@@ -12,11 +12,11 @@ const resolvers = {
       return User.findOne({ username }).populate("posts");
     },
 
-    getPosts: async () => {
+    Posts: async () => {
       return await Post.find();
     },
 
-    getPost: async (parent, { _id }) => {
+    Post: async (parent, { _id }) => {
       return await Post.findById(_id).populate("comments")
     }
   },
