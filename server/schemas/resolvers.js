@@ -2,6 +2,8 @@ const { AuthenticationError } = require("apollo-server-express");
 const { User, Post } = require("../models");
 const { signToken } = require("../utils/auth");
 
+console.log('start resolvers')
+
 const resolvers = {
   Query: {
     users: async () => {
@@ -12,11 +14,11 @@ const resolvers = {
       return User.findOne({ _id }).populate("posts");
     },
 
-    Posts: async () => {
+    posts: async () => {
       return await Post.find();
     },
 
-    Post: async (parent, { _id }) => {
+    post: async (parent, { _id }) => {
       return await Post.findById(_id).populate("comments")
     }
   },
@@ -47,5 +49,7 @@ const resolvers = {
     },
   },
 };
+
+console.log('end resolver')
 
 module.exports = resolvers;
