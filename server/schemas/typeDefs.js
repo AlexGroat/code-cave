@@ -14,6 +14,7 @@ const typeDefs = gql`
     createdAt: String!
     username: String!
     comments: [Comment]!
+    likes: [Like]
   }
 
   type Comment {
@@ -23,6 +24,11 @@ const typeDefs = gql`
     body: String!
   }
 
+  type Like {
+    _id: ID!
+    username: String!
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -30,7 +36,7 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user(username: String!): User
+    user(_id: ID!): User
     Posts: [Post]
     Post(postId: ID!) : Post
   }
