@@ -15,7 +15,7 @@ const resolvers = {
     },
 
     posts: async () => {
-      return await Post.find();
+      return await Post.find().populate("comments");
     },
 
     post: async (parent, { _id }) => {

@@ -16,13 +16,6 @@ const postSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  comments: [
-    {
-      body: String,
-      username: String,
-      createdAt: String,
-    },
-  ],
   likes: [
     {
       username: String,
@@ -33,6 +26,10 @@ const postSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "users",
   },
+  comments: {
+    type: Schema.Types.ObjectId,
+    ref: "comments"
+  }
 });
 
 const Post = model("Post", postSchema);
