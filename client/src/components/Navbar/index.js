@@ -6,9 +6,8 @@ import Auth from "../../utils/auth";
 const Navbar = () => {
   const logout = (event) => {
     event.preventDefault();
-    Auth.logout;
-  };
-  
+    Auth.logout();
+  }; 
 
   return (
     <nav className="flex-column">
