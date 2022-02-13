@@ -21,6 +21,9 @@ export default function Sidebar() {
             {Auth.loggedIn() ? (
         <>
           <li className="logged-in-text">Welcome to the cave, {Auth.getProfile().data.username}!</li>
+          <Link className="sidebar-link" to="/profile">
+            <li className="sidebar-list-item-login">Profile</li>
+          </Link>
           <button className="logout-button btn btn-md btn-primary" onClick={logout}>
             Logout
           </button>
