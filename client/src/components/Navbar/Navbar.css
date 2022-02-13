@@ -85,7 +85,7 @@ span {
   font-size: 30px;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 810px) {
   .cc-title {
     font-size: 35px;
     margin-top: 10px;
@@ -97,7 +97,7 @@ span {
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 560px) {
   .cc-title {
     font-size: 25px;
     margin-top: 10px;
@@ -113,7 +113,7 @@ span {
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 480px) {
   .cc-title {
     font-size: 25px;
     margin-top: 10px;

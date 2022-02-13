@@ -1,0 +1,111 @@
+.signup {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0f2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .signupWrapper {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    margin-top: -200px;
+  }
+  
+  .signupLeft,
+  .signupRight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .signupLogo {
+    font-size: 50px;
+    font-weight: 800;
+    color: #1775ee;
+    margin-bottom: 10px;
+  }
+  
+  .signupDesc {
+    font-size: 24px;
+  }
+  
+  .signupBox{
+      height: 195px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  
+  .signupInput{
+      height: 50px;
+      border-radius: 10px;
+      border: 1px solid gray;
+      font-size: 18px;
+      padding-left: 20px;
+  }
+
+  .passwordInput{
+      height: 50px;
+      border-radius: 10px;
+      border: 1px solid gray;
+      font-size: 18px;
+      padding-left: 20px;
+  }
+  
+  .signupInput:focus{
+      outline: none;
+  }
+  
+  .signupButton{
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      background-color: #1775ee;
+      color: white;
+      font-size: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100px;
+  }
+
+  .back-to-home {
+      width: 200px;
+      color: white;
+  }
+
+  .signup-form {
+    margin-top: 22px;
+  }
+
+  @media screen and (max-width: 1420) {
+  .signup-form{
+      margin-top: 100px;
+  }
+  }
+
+  @media screen and (max-width: 550px) {
+    .signupWrapper {
+      flex-direction: column;
+    }
+
+    form {
+      margin-top: -1px;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    .signupWrapper {
+      flex-direction: column;
+    }
+
+    form {
+      margin-top: -1px;
+    }
+  }

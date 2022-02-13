@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './signup.css';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
@@ -39,61 +40,74 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
+    <div className="signup">
+    <div className="signupWrapper">
+      <div className="signupLeft">
+        <h3 className="signupLogo">Code Cave</h3>
+        <span className="signupDesc">
+          Have all your coding problems solved!
+        </span>
+        <Link to="/">
+          <button className="back-to-home btn btn-primary text-white">
+            {" "}
+            Back to Home
+          </button>
+        </Link>
+      </div>
+      <div className="signupRight">
+        <div className="signupBox">
+          {data ? (
+            <p>
+              Success!
+              <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <>
+              <form className='signup-form' onSubmit={handleFormSubmit}>
+              <input
+                className="signupInput"
+                placeholder="Your username"
+                name="username"
+                type="text"
+                value={formState.name}
+                onChange={handleChange}
+              />
                 <input
-                  className="form-input"
-                  placeholder="Your username"
-                  name="username"
-                  type="text"
-                  value={formState.name}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="Your email"
+                  className="signupInput"
+                  placeholder="Email"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
                 <input
-                  className="form-input"
-                  placeholder="******"
+                  className="passwordInput"
+                  placeholder="Password"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
+                  className="signupButton"
+                  style={{ curser: "pointer" }}
                   type="submit"
                 >
-                  Submit
+                 Signup
                 </button>
               </form>
-            )}
+            </>
+          )}          
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
-          </div>
+          {error && (
+            <div className="my-3 p-3 bg-danger text-white">
+              {error.message}
+            </div>
+          )}
         </div>
       </div>
-    </main>
+    </div>
+  </div>
   );
 };
 
