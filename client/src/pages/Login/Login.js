@@ -50,17 +50,54 @@ const Login = (props) => {
             Have all your coding problems solved!
           </span>
           <Link to="/">
-          <button className="back-to-home btn btn-primary text-white">
-            {" "}
-            Back to Home
-          </button>
+            <button className="back-to-home btn btn-primary text-white">
+              {" "}
+              Back to Home
+            </button>
           </Link>
         </div>
         <div className="loginRight">
           <div className="loginBox">
-            <input placeholder="Email" className="loginInput" />
-            <input placeholder="Password" className="loginInput" />
-            <button className="loginButton">Log In</button>
+            {data ? (
+              <p>
+                Already logged in!
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+              <>
+                <form onSubmit={handleFormSubmit}>
+                  <input
+                    className="loginInput"
+                    placeholder="Email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className="passwordInput"
+                    placeholder="Password"
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                  />
+                  <button
+                    className="loginButton"
+                    style={{ curser: "pointer" }}
+                    type="submit"
+                  >
+                    Log In
+                  </button>
+                </form>
+              </>
+            )}          
+
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
           </div>
         </div>
       </div>
