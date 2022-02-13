@@ -1,22 +1,5 @@
-.home-container {
-    display: flex;
-    width: 100%;
-}
 
-.home-sidebar {
-    width: 25%;
-    display: flex;
-}
 
-.home-feed {
-    width: 40%;
-    display: flex;
-}
-
-.home-rightbar {
-    width: 27%;
-    display: flex;
-}
 
 
 

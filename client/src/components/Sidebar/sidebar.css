@@ -1,9 +1,0 @@
-.sidebar {
-    flex: 3;
-    height: calc(100vh - 50px);
-    overflow-y: hidden;
-    position: sticky;
-    top: 50px;
-    z-index: 1;
-  }
-
