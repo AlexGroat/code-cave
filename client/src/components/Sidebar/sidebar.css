@@ -36,7 +36,7 @@
 .sidebar-list-item:hover {
   background-color: #1877f1;
   color: white;
-  width: 50px;
+  width: 65px;
   border-radius: 10px;
 }
 
@@ -45,37 +45,50 @@
 }
 
 .sidebar-list-item-login {
-    margin-left: 31px;
-    display: flex;
-    color: black;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.sidebar-list-item-login:hover {
-  background-color: #1877f1;
-  color: white;
-  width: 80px;
-  border-radius: 10px;
-}
-
-.sidebar-list-item-signup {
-  margin-left: 31px;
   display: flex;
   color: black;
   align-items: center;
   margin-bottom: 20px;
 }
 
+.sidebar-list-item-login:hover {
+  background-color: #1877f1;
+  color: white;
+  width: 70px;
+  border-radius: 10px;
+}
+
+.sidebar-list-item-signup {
+  display: flex;
+  color: black;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-list-item-signup:hover {
+  background-color: #1877f1;
+  color: white;
+  width: 80px;
+  border-radius: 10px;
+}
+
 .logged-in-text {
-    margin-left: 31px;
-    display: flex;
-    color: black;
-    align-items: center;
-    margin-bottom: 20px; 
+  display: flex;
+  font-size: 20px;
+  color: black;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .logout-button {
-    margin-left: 31px;
+  margin-left: 8px;
 }
 
+@media screen and (max-width: 450px) {
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+}

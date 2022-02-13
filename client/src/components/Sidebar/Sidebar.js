@@ -3,6 +3,8 @@ import { RssFeed } from "@material-ui/icons";
 import PersonIcon from "@material-ui/icons/Person";
 import EmojiPeopleIcon from "@material-ui/icons/EmojiPeople";
 import { Link } from "react-router-dom";
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import CreateIcon from '@material-ui/icons/Create';
 
 import Auth from "../../utils/auth";
 
@@ -11,19 +13,20 @@ export default function Sidebar() {
     event.preventDefault();
     Auth.logout();
   };
+
   return (
-    <div className="sidebar sidebar-collapse">
+    <nav className="sidebar sidebar-collapse">
       <div className="sidebar-wrapper">
         <ul className="sidebar-list">
           <Link className="sidebar-link" to="/">
-            <RssFeed className="sidebar-icon" />
-            <li className="sidebar-list-item">Feed</li>
+            <li className="sidebar-list-item"><RssFeed />Feed</li>
           </Link>
-        </ul>
+        
         {Auth.loggedIn() ? (
           <>
             <li className="logged-in-text">
-             <EmojiPeopleIcon /> Welcome to the cave, {Auth.getProfile().data.username}!
+              <EmojiPeopleIcon /> Welcome,{" "}
+              {Auth.getProfile().data.username}!
             </li>
             <Link className="sidebar-link" to="/profile">
               <li className="sidebar-list-item-login">
@@ -41,14 +44,15 @@ export default function Sidebar() {
         ) : (
           <>
             <Link className="sidebar-link" to="/login">
-              <li className="sidebar-list-item-login">Login</li>
+              <li className="sidebar-list-item-login"><VpnKeyIcon />Login</li>
             </Link>
             <Link className="sidebar-link" to="/signup">
-              <li className="sidebar-list-item-signup">Signup</li>
+              <li className="sidebar-list-item-signup"><CreateIcon />Signup</li>
             </Link>
           </>
         )}
+        </ul>
       </div>
-    </div>
+    </nav>
   );
 }
