@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../../utils/mutations'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
+import "./login.css";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
@@ -35,59 +36,35 @@ const Login = (props) => {
 
     // clear form values
     setFormState({
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     });
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
-
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
+    <div className="login">
+      <div className="loginWrapper">
+        <div className="loginLeft">
+          <h3 className="loginLogo">Code Cave</h3>
+          <span className="loginDesc">
+            Have all your coding problems solved!
+          </span>
+          <Link to="/">
+          <button className="back-to-home btn btn-primary text-white">
+            {" "}
+            Back to Home
+          </button>
+          </Link>
+        </div>
+        <div className="loginRight">
+          <div className="loginBox">
+            <input placeholder="Email" className="loginInput" />
+            <input placeholder="Password" className="loginInput" />
+            <button className="loginButton">Log In</button>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
