@@ -47,12 +47,21 @@ const Signup = () => {
         <span className="signupDesc">
           Have all your coding problems solved!
         </span>
-        <Link to="/">
-          <button className="back-to-home btn btn-primary text-white">
-            {" "}
-            Back to Home
-          </button>
-        </Link>
+        <div className="left-side-login">
+            <Link to="/">
+              <button className="back-to-home btn btn-primary text-white">
+                {" "}
+                Back to Home
+              </button>
+            </Link>
+            <p className="account-text">Already have an account?</p>
+            <Link to="/login">
+              <button className="back-to-home btn btn-primary text-white">
+                {" "}
+                Login
+              </button>
+            </Link>
+          </div>
       </div>
       <div className="signupRight">
         <div className="signupBox">
