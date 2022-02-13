@@ -12,31 +12,31 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar-wrapper">
-        <ul className="sidebar-nav">
-          <Link className="feed-link" to="/">
-              <RssFeed className="feed-icon"/>
-            <li className="feed-list-item">Feed</li>
+        <ul className="sidebar-list">
+          <Link className="sidebar-link" to="/">
+              <RssFeed className="sidebar-icon"/>
+            <li className="sidebar-list-item">Feed</li>
           </Link>
         </ul>
-      </div>
-      {Auth.loggedIn() ? (
+            {Auth.loggedIn() ? (
         <>
-          <span>Hey there, {Auth.getProfile().data.username}!</span>
-          <button className="btn btn-lg btn-light m-2" onClick={logout}>
+          <li className="logged-in-text">Welcome to the cave, {Auth.getProfile().data.username}!</li>
+          <button className="logout-button btn btn-md btn-primary" onClick={logout}>
             Logout
           </button>
         </>
       ) : (
         <>
-          <Link className="feed-link" to="/login">
-            <li className="feed-list-item">Login</li>
+          <Link className="sidebar-link" to="/login">
+            <li className="sidebar-list-item-login">Login</li>
           </Link>
-          <Link className="feed-link" to="/signup">
-            <li className="feed-list-item">Signup</li>
+          <Link className="sidebar-link" to="/signup">
+            <li className="sidebar-list-item-signup">Signup</li>
           </Link>
              
         </>
       )}
+    </div>
     </div>
   );
 }
