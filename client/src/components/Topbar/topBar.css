@@ -10,13 +10,45 @@
 
 .topbar-left {
     flex: 3;
-    background-color: red;
+}
+
+.cc-header {
+    font-size: 24px;
+    margin-left: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
 }
 .topbar-center {
     flex: 5;
-    background-color: green;
 }
+
+.cc-slogan {
+    font-size: 18px;
+    color: white;
+    margin-left: 20px;
+}
+
 .topbar-right {
     flex: 4;
-    background-color: yellow;
+    display: flex;
 }
+
+.searchbar {
+    width: 90%;
+    height: 30px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .searchIcon {
+    font-size: 20px !important;
+    margin-left: 10px;
+  }
+  
+  .searchInput {
+    border: none;
+    width: 70%;
+  }
