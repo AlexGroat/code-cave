@@ -60,7 +60,7 @@ const Login = (props) => {
           <div className="loginBox">
             {data ? (
               <p>
-                Already logged in!
+                Success!
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (

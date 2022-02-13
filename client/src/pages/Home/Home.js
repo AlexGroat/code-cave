@@ -1,3 +1,4 @@
+import PostForm from "../../components/PostForm/PostForm";
 import "./home.css";
 
 export default function Home() {
@@ -5,7 +6,9 @@ export default function Home() {
     
     <>
     
-      <div className="home-container"></div>
+      <div className="home-container">
+      <PostForm />
+      </div>
     </>
   );
 }
