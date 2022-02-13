@@ -47,6 +47,12 @@ const NavBar = () => {
             {Auth.loggedIn() ? (
               <>
                 <span>Welcome, {Auth.getProfile().data.username}! </span>
+                <Link className="sidebar-link" to="/">
+                  <span className="nav-text">
+                    <AiIcons.AiFillHome />
+                    Home
+                  </span>
+                </Link>
                 <Link className="sidebar-link" to="/profile">
                   <span className="nav-text">
                     <BsIcons.BsFillPersonFill />
