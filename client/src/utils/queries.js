@@ -15,9 +15,9 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const GET_POSTS = gql`
+export const QUERY_POSTS = gql`
   {
-    getPosts {
+    posts {
       id
       body
       createdAt
