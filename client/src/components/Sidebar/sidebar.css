@@ -4,6 +4,7 @@
   overflow-y: scroll;
   position: sticky;
   top: 50px;
+  z-index: 1;
 }
 
 ::-webkit-scrollbar {
@@ -32,6 +33,12 @@
   align-items: center;
   margin-bottom: 20px;
 }
+.sidebar-list-item:hover {
+  background-color: #1877f1;
+  color: white;
+  width: 50px;
+  border-radius: 10px;
+}
 
 .sidebar-icon {
   margin-right: 15px;
@@ -43,6 +50,13 @@
     color: black;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.sidebar-list-item-login:hover {
+  background-color: #1877f1;
+  color: white;
+  width: 80px;
+  border-radius: 10px;
 }
 
 .sidebar-list-item-signup {
@@ -64,3 +78,4 @@
 .logout-button {
     margin-left: 31px;
 }
+
