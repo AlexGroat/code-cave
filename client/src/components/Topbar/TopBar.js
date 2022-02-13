@@ -15,8 +15,7 @@ export default function TopBar() {
       </div>
       <div className="topbar-center">
         <div className="cc-slogan">
-          <ArrowBackIosIcon />
-          The cave for all your coding solutions!
+          <ArrowBackIosIcon />The cave for all your coding solutions!  
           <ArrowForwardIosIcon />
         </div>
       </div>
