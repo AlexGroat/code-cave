@@ -66,14 +66,6 @@ const Login = (props) => {
             ) : (
               <>
                 <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your username"
-                  name="username"
-                  type="text"
-                  value={formState.name}
-                  onChange={handleChange}
-                />
                   <input
                     className="loginInput"
                     placeholder="Email"
@@ -99,7 +91,7 @@ const Login = (props) => {
                   </button>
                 </form>
               </>
-            )}          
+            )}
 
             {error && (
               <div className="my-3 p-3 bg-danger text-white">
