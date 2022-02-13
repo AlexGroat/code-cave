@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../../utils/mutations";
 import Auth from "../../utils/auth";
+import './postform.css'
 
 const PostForm = (props) => {
   const [formState, setFormState] = useState({ body: "" });

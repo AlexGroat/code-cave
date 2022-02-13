@@ -5,7 +5,6 @@ function PostCard({
     post: { body, username, createdAt, id, likes, likeCount, commentCount }
 }); {
 
-
     return (
         <div className="card-container">
             <div className="card-body">
