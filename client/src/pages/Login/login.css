@@ -80,10 +80,15 @@
 
   form {
     margin-top: 50px;
+ 
   }
 
   @media screen and (max-width: 550px) {
     .loginWrapper {
       flex-direction: column;
+    }
+
+    form {
+      margin-top: -1px;
     }
   }
