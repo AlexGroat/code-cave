@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -51,7 +52,31 @@ const PostForm = (props) => {
     </form>
       </>
     ) : (
-      <></>
+      <>
+      <div className="logged-out">
+        <div className="logged-out-prompt">
+          <h3 className="prompt-header">
+            Welcome to the Code Cave
+          </h3>
+          <div className="prompt-text">
+            <p className="prompt-p">
+              Please Login or Signup to begin!
+            </p>
+          </div>
+        <Link to="/login">
+          <button className="btn btn-primary">
+            Login
+          </button>
+        </Link>
+        <Link to="/signup">
+          <button className="btn btn-secondary">
+            Signup
+          </button>
+        </Link>
+        </div>
+      </div>
+      
+      </>
     )}
     
     </>
