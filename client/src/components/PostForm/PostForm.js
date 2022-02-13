@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 const PostForm = (props) => {
   const [formState, setFormState] = useState({ body: "" });
@@ -34,7 +35,10 @@ const PostForm = (props) => {
   };
 
   return (
-    <form className="post-form" onSubmit={handleFormSubmit}>
+    <>
+    {Auth.loggedIn() ? (
+      <>
+      <form className="post-form" onSubmit={handleFormSubmit}>
       <h2>Create a post:</h2>
       <input
         placeholder="Hi World!"
@@ -45,6 +49,12 @@ const PostForm = (props) => {
       />
       <button className="btn btn-primary">Submit</button>
     </form>
+      </>
+    ) : (
+      <></>
+    )}
+    
+    </>
   );
 };
 

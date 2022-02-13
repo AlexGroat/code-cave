@@ -30,7 +30,7 @@ const NavBar = () => {
           </Link>
           <div className="title-text">
           <header className="nav-title">
-              <h1 className="cc-title">Code Cave</h1>
+              <h1 className="cc-title">Code Cave <BiIcons.BiCode/></h1>
               <p className="cc-text">The cave for all coders!</p>
           </header>
           </div>
