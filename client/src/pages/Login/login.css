@@ -82,7 +82,10 @@
 
   form {
     margin-top: 50px;
- 
+  }
+
+  .left-side-login p {
+    margin-top: 20px;
   }
 
   @media screen and (max-width: 550px) {

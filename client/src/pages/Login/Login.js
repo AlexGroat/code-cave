@@ -49,12 +49,22 @@ const Login = (props) => {
           <span className="loginDesc">
             Have all your coding problems solved!
           </span>
+          <div className="left-side-login">
           <Link to="/">
             <button className="back-to-home btn btn-primary text-white">
               {" "}
               Back to Home
             </button>
           </Link>
+          
+            <p>Dont have an account?</p>
+            <Link to="/signup">
+            <button className="back-to-home btn btn-primary text-white">
+              {" "}
+               Signup
+            </button>
+          </Link>
+          </div>
         </div>
         <div className="loginRight">
           <div className="loginBox">
