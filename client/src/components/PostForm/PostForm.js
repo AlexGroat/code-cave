@@ -56,10 +56,11 @@ const PostForm = () => {
 
   return (
     <div>
-      <h3>Post your coding questions below!</h3>
+      <h3>Please login or signup to post your coding questions!</h3>
 
       {Auth.loggedIn() ? (
         <>
+        <h3>Post your coding questions below!</h3>
           <p
             className={`m-0 ${textCount === 280 || error ? "text-danger" : ""}`}
           >
