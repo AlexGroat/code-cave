@@ -13,14 +13,14 @@ const typeDefs = gql`
     _id: ID!
     body: String!
     createdAt: String!
-    username: String!
+    postAuthor: String!
     comments: [Comment]!
     likes: [Like]
   }
 
   type Comment {
     _id: ID!
-    username: String!
+    commentAuthor: String!
     body: String!
     createdAt: String!
   }
@@ -45,10 +45,10 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    createPost(body: String!) : Post
-    deletePost(postId: ID!) : String
-    createComment(postId: String!, body: String!) : Post
-    deleteComment(postId: String!, commendID: ID!): Post
+    addPost(postAuthor: String!, body: String!) : Post
+    removePost(postId: ID!) : String
+    addComment(postId: String!, commentAuthor: String! body: String!) : Post
+    removeComment(postId: String!, commentID: ID!): Post
     likePost(postId: ID!): Post
   }
 `;

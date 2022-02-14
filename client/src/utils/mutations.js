@@ -49,13 +49,13 @@ export const CREATE_POST = gql`
 `;
 
 
-export const DELETE_POST_MUTATION = gql`
+export const DELETE_POST = gql`
   mutation deletePost($postId: ID!) {
     deletePost(postId: $postId)
   }
 `;
 
-export const LIKE_POST_MUTATION = gql`
+export const LIKE_POST = gql`
   mutation likePost($postId: ID!) {
     likePost(postId: $postId) {
       id
@@ -68,7 +68,7 @@ export const LIKE_POST_MUTATION = gql`
   }
 `;
 
-export const SUBMIT_COMMENT_MUTATION = gql`
+export const ADD_COMMENT = gql`
   mutation($postId: String!, $body: String!) {
     createComment(postId: $postId, body: $body) {
       id
@@ -83,7 +83,7 @@ export const SUBMIT_COMMENT_MUTATION = gql`
   }
 `;
 
-export const DELETE_COMMENT_MUTATION = gql`
+export const DELETE_COMMENT = gql`
   mutation deleteComment($postId: ID!, $commentId: ID!) {
     deleteComment(postId: $postId, commentId: $commentId) {
       id

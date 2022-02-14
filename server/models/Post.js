@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const postSchema = new Schema({
-  username: {
+  postAuthor: {
     type: String,
     required: true,
     unique: true,
