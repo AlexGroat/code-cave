@@ -37,6 +37,7 @@ const PostForm = () => {
       });
 
       setPostText("");
+      setTextCount(0)
     } catch (err) {
       console.error(err);
     }

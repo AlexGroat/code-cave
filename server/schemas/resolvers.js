@@ -15,7 +15,9 @@ const resolvers = {
     },
 
     posts: async () => {
-      return await Post.find().populate("comments");
+      const posts = await Post.find().populate(["comments", "postAuthor"]).limit(5)
+      console.log(posts)
+      return posts;
     },
 
     post: async (parent, { _id }) => {
@@ -51,14 +53,15 @@ const resolvers = {
     addPost: async (parent, { postText }, context) => {
       console.log(context.user)
       if (context.user) {
-        const post = await Post.create({ postText });
-        console.log(post)
+        const post = await Post.create({ postText, postAuthor: context.user._id });
+        const populatedPost = await post.populate('postAuthor').execPopulate();
+        console.log(populatedPost)
         await User.findOneAndUpdate(
           { username: context.user.username },
           { $addToSet: { posts: post._id } }
         );
 
-        return post;
+        return populatedPost;
       }
      throw new AuthenticationError('error')
     },

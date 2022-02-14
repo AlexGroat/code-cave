@@ -20,7 +20,10 @@ export const QUERY_POSTS = gql`
     posts {
       _id
       postText
-      postAuthor
+      postAuthor {
+      _id
+      username
+      }
       likes {
         username
       }

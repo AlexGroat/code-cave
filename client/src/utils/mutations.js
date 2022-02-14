@@ -30,7 +30,10 @@ export const ADD_POST = gql`
       _id
       postText
       createdAt
-      postAuthor
+      postAuthor {
+      _id
+      username
+      }
       likes {
         _id
         username

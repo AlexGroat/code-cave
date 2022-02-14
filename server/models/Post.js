@@ -17,7 +17,7 @@ const postSchema = new Schema({
       createdAt: String,
     },
   ],
-  user: {
+  postAuthor: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
