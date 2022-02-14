@@ -63,11 +63,11 @@ const resolvers = {
       return Post.findByIdAndDelete({ _id: postId });
     },
 
-    addComment: async (parent, { postId, postAuthor, body }) => {
+    addComment: async (parent, { postId, postAuthor, commentText }) => {
       return Post.findOneAndUpdate(
         { _id: postId },
         {
-          $addToSet: { comments: { postAuthor, body } },
+          $addToSet: { comments: { postAuthor, commentText } },
         },
         {
           new: true,
