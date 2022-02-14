@@ -1,60 +1,106 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { CREATE_POST } from "../../utils/mutations";
+import { ADD_POST } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 import './postform.css'
+import { QUERY_POSTS } from "../../utils/queries";
 
 const PostForm = () => {
   const [postText, setPostText] = useState('');
 
-  const [textCount, setTextCount] = useState(0)
+  const [textCount, setTextCount] = useState(0);
+
+  const [ addPost, { error }] = useMutation(ADD_POST, {
+    update(cache, {data: { addPost }}) {
+      try {
+        const { posts } = cache.readQuery({ query: QUERY_POSTS});
+
+        cache.writeQuery({
+          query: QUERY_POSTS,
+          data: { posts: [addPost, ...posts]},
+        });
+      } catch (err) {
+        console.error(err)
+      }
+    },
+  });
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await addPost({
+        variables: {
+          postAuthor: Auth.getProfile().data.username,
+          postText,
+        },
+      });
+
+      setPostText('');
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === 'postText' && value.length <= 280) {
+      setPostText(value);
+      setTextCount(value.length);
+    }
+  }
+
+  console.log(postText)
 
   return (
-    <>
-    {Auth.loggedIn() ? (
-      <>
-      <form className="post-form" onSubmit={handleFormSubmit}>
-      <h2>Create a post:</h2>
-      <input
-        placeholder="Hi World!"
-        name="body"
-        onChange={handleChange}
-        value={}
-        error={error ? true : false}
-      />
-      <button className="btn btn-primary">Submit</button>
-    </form>
-      </>
-    ) : (
-      <>
-      <div className="logged-out">
-        <div className="logged-out-prompt">
-          <h3 className="prompt-header">
-            Welcome to the Code Cave
-          </h3>
-          <div className="prompt-text">
-            <p className="prompt-p">
-              Please Login or Signup to begin!
-            </p>
-          </div>
-        <Link to="/login">
-          <button className="btn btn-primary">
-            Login
-          </button>
-        </Link>
-        <Link to="/signup">
-          <button className="btn btn-secondary">
-            Signup
-          </button>
-        </Link>
-        </div>
-      </div>
-      
-      </>
-    )}
-    
-    </>
+    <div>
+      <h3>What's on your techy mind?</h3>
+
+      {Auth.loggedIn() ? (
+        <>
+          <p
+            className={`m-0 ${
+              textCount === 280 || error ? 'text-danger' : ''
+            }`}
+          >
+            Character Count: {textCount}/280
+          </p>
+          <form
+            className="flex-row justify-center justify-space-between-md align-center"
+            onSubmit={handleFormSubmit}
+          >
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="postText"
+                placeholder="Here's a new thought..."
+                value={postText}
+                className="form-input w-100"
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+
+            <div className="col-12 col-lg-3">
+              <button className="btn btn-primary btn-block py-3" type="submit">
+                Add Thought
+              </button>
+            </div>
+            {error && (
+              <div className="col-12 my-3 bg-danger text-white p-3">
+                {error.message}
+              </div>
+            )}
+          </form>
+        </>
+      ) : (
+        <p>
+          You need to be logged in to post your code. Please{' '}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        </p>
+      )}
+    </div>
   );
 };
 

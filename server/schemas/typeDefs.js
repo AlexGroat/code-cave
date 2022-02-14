@@ -11,10 +11,10 @@ const typeDefs = gql`
 
   type Post {
     _id: ID!
-    body: String!
-    createdAt: String!
+    postText: String!
+    createdAt: String
     postAuthor: String!
-    comments: [Comment]!
+    comments: [Comment]
     likes: [Like]
   }
 
@@ -22,7 +22,7 @@ const typeDefs = gql`
     _id: ID!
     commentAuthor: String!
     commentText: String!
-    createdAt: String!
+    createdAt: String
   }
 
   type Like {
