@@ -48,8 +48,8 @@ const resolvers = {
       return { token, user };
     },
 
-    addPost: async (parent, { username, postAuthor }) => {
-      const post = await Post.create({ username, postAuthor });
+    addPost: async (parent, { thoughtAuthor, body }) => {
+      const post = await Post.create({ thoughtAuthor, body });
 
       await User.findOneAndUpdate(
         { username: thoughtAuthor },
@@ -83,6 +83,10 @@ const resolvers = {
         { new: true }
       );
     },
+
+    likePost: async (parent, { postId, }) => {
+
+    }
   },
 };
 
