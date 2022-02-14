@@ -21,12 +21,12 @@ const userSchema = new Schema({
   },
   comments: {
     type: Schema.Types.ObjectId,
-    ref: 'comments',
+    ref: 'Comment',
   },
 
   posts: {
     type: Schema.Types.ObjectId,
-    ref: 'posts'
+    ref: 'Post'
   }
 });
 

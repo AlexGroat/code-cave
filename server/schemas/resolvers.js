@@ -49,9 +49,10 @@ const resolvers = {
     },
 
     addPost: async (parent, { postText }, context) => {
+      console.log(context.user)
       if (context.user) {
         const post = await Post.create({ postText });
-
+        console.log(post)
         await User.findOneAndUpdate(
           { username: context.user.username },
           { $addToSet: { posts: post._id } }
@@ -59,7 +60,7 @@ const resolvers = {
 
         return post;
       }
-     
+     throw new AuthenticationError('error')
     },
 
     removePost: async (parent, { postId }) => {

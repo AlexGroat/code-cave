@@ -13,7 +13,7 @@ const typeDefs = gql`
     _id: ID!
     postText: String!
     createdAt: String
-    postAuthor: String!
+    postAuthor: String
     comments: [Comment]
     likes: [Like]
   }

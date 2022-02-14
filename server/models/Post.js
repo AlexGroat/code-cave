@@ -1,11 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const postSchema = new Schema({
-  postAuthor: {
-    type: String,
-    required: true,
-    unique: true,
-  },
   postText: {
     type: String,
     required: true,
@@ -24,11 +19,11 @@ const postSchema = new Schema({
   ],
   user: {
     type: Schema.Types.ObjectId,
-    ref: "users",
+    ref: "User",
   },
   comments: {
     type: Schema.Types.ObjectId,
-    ref: "comments"
+    ref: "Comment"
   }
 });
 
