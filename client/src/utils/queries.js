@@ -18,20 +18,16 @@ export const QUERY_USER = gql`
 export const QUERY_POSTS = gql`
   {
     posts {
-      id
-      body
-      createdAt
-      username
-      likeCount
+      _id
+      postText
+      postAuthor
       likes {
         username
       }
-      commentCount
       comments {
-        id
-        username
-        createdAt
-        body
+        _id
+        commentAuthor
+        commentText
       }
     }
   }

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { ADD_POST } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 import "./postform.css";
 import { QUERY_POSTS } from "../../utils/queries";
+import { ADD_POST } from "../../utils/mutations";
 
 const PostForm = () => {
   const [postText, setPostText] = useState("");
@@ -71,7 +71,7 @@ const PostForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="postText"
-                placeholder="Here's a new thought..."
+                placeholder="Post your code here!"
                 value={postText}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
