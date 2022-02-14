@@ -56,7 +56,7 @@ const PostForm = () => {
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
+      <h3>Post your coding questions below!</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -84,7 +84,7 @@ const PostForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Thought
+                Post your code!
               </button>
             </div>
             {error && (
