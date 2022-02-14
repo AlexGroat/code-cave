@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
-import Auth from "../../utils/auth";
 
 const PostCard = ({ posts }) => {
  
