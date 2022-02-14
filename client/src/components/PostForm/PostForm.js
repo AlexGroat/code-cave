@@ -5,36 +5,10 @@ import { CREATE_POST } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 import './postform.css'
 
-const PostForm = (props) => {
-  const [formState, setFormState] = useState({ body: "" });
+const PostForm = () => {
+  const [postText, setPostText] = useState('');
 
-  const [createPost, { error }] = useMutation(CREATE_POST);
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
-
-    try {
-      const { data } = await createPost({
-        variables: { ...formState },
-      });
-    } catch (err) {
-      console.log(error);
-    }
-
-    setFormState({
-      body: "",
-    });
-  };
+  const [textCount, setTextCount] = useState(0)
 
   return (
     <>
@@ -46,7 +20,7 @@ const PostForm = (props) => {
         placeholder="Hi World!"
         name="body"
         onChange={handleChange}
-        value={formState.body}
+        value={}
         error={error ? true : false}
       />
       <button className="btn btn-primary">Submit</button>

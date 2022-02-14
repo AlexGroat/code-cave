@@ -48,11 +48,11 @@ const resolvers = {
       return { token, user };
     },
 
-    addPost: async (parent, { thoughtAuthor, body }) => {
-      const post = await Post.create({ thoughtAuthor, body });
+    addPost: async (parent, { postAuthor, postText }) => {
+      const post = await Post.create({ postAuthor, postText });
 
       await User.findOneAndUpdate(
-        { username: thoughtAuthor },
+        { username: postAuthor },
         { $addToSet: { posts: post._id } }
       );
 

@@ -24,7 +24,7 @@ export const ADD_USER = gql`
   }
 `;
 
-export const CREATE_POST = gql`
+export const ADD_POST = gql`
   mutation createPost($body: String!) {
     createPost(body: $body) {
       id
