@@ -3,25 +3,25 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_POST } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-import './postform.css'
+import "./postform.css";
 import { QUERY_POSTS } from "../../utils/queries";
 
 const PostForm = () => {
-  const [postText, setPostText] = useState('');
+  const [postText, setPostText] = useState("");
 
   const [textCount, setTextCount] = useState(0);
 
-  const [ addPost, { error }] = useMutation(ADD_POST, {
-    update(cache, {data: { addPost }}) {
+  const [addPost, { error }] = useMutation(ADD_POST, {
+    update(cache, { data: { addPost } }) {
       try {
-        const { posts } = cache.readQuery({ query: QUERY_POSTS});
+        const { posts } = cache.readQuery({ query: QUERY_POSTS });
 
         cache.writeQuery({
           query: QUERY_POSTS,
-          data: { posts: [addPost, ...posts]},
+          data: { posts: [addPost, ...posts] },
         });
       } catch (err) {
-        console.error(err)
+        console.error(err);
       }
     },
   });
@@ -32,12 +32,11 @@ const PostForm = () => {
     try {
       const { data } = await addPost({
         variables: {
-          postAuthor: Auth.getProfile().data.username,
           postText,
         },
       });
 
-      setPostText('');
+      setPostText("");
     } catch (err) {
       console.error(err);
     }
@@ -46,13 +45,13 @@ const PostForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'postText' && value.length <= 280) {
+    if (name === "postText" && value.length <= 280) {
       setPostText(value);
       setTextCount(value.length);
     }
-  }
+  };
 
-  console.log(postText)
+  console.log(postText);
 
   return (
     <div>
@@ -61,9 +60,7 @@ const PostForm = () => {
       {Auth.loggedIn() ? (
         <>
           <p
-            className={`m-0 ${
-              textCount === 280 || error ? 'text-danger' : ''
-            }`}
+            className={`m-0 ${textCount === 280 || error ? "text-danger" : ""}`}
           >
             Character Count: {textCount}/280
           </p>
@@ -77,7 +74,7 @@ const PostForm = () => {
                 placeholder="Here's a new thought..."
                 value={postText}
                 className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}
               ></textarea>
             </div>
@@ -96,7 +93,7 @@ const PostForm = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to post your code. Please{' '}
+          You need to be logged in to post your code. Please{" "}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}

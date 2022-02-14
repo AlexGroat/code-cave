@@ -48,15 +48,18 @@ const resolvers = {
       return { token, user };
     },
 
-    addPost: async (parent, { postAuthor, postText }) => {
-      const post = await Post.create({ postAuthor, postText });
+    addPost: async (parent, { postText }, context) => {
+      if (context.user) {
+        const post = await Post.create({ postText });
 
-      await User.findOneAndUpdate(
-        { username: postAuthor },
-        { $addToSet: { posts: post._id } }
-      );
+        await User.findOneAndUpdate(
+          { username: context.user.username },
+          { $addToSet: { posts: post._id } }
+        );
 
-      return post;
+        return post;
+      }
+     
     },
 
     removePost: async (parent, { postId }) => {
