@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import Home from "./pages/Home/Home";
 import Login from './pages/Login/Login';
 import NavBar from './components/NavBar/Navbar'
-// import Signup from './pages/Signup/Signup';
+import Signup from './pages/Signup/Signup';
 // import Profile from './pages/Profile/Profile';
 // import SingePost from './pages/SinglePost/SinglePost';
 
@@ -48,11 +48,11 @@ function App() {
         <Route exact path="/login">
           <Login />
         </Route>
-        {/* <Route exact path="/">
-          <Home />
-        </Route>
         <Route exact path="/signup">
           <Signup />
+        </Route>
+        {/* <Route exact path="/">
+          <Home />
         </Route>
         <Route exact path="/profile">
           <Profile />
