@@ -43,28 +43,31 @@ const PostForm = () => {
   };
 
   const handleChange = (event) => {
-      const { name, value } = event.target;
+    const { name, value } = event.target;
 
-      if (name === 'postText' && value.length <= 280) {
-          setPostText(value)
-          setCharacterCount(value.length);
-      }
+    if (name === "postText" && value.length <= 280) {
+      setPostText(value);
+      setCharacterCount(value.length);
+    }
   };
 
   return (
     <div>
-                {Auth.loggedIn() ? (
-            <>
-            <h3> Post your coding questions below!</h3>
-            <p className={`m-0 ${characterCount === 280 || error ? "text-danger" : ""}`}
-            >
-                Character Count: {characterCount}/280
-            </p>
-            <form
+      {Auth.loggedIn() ? (
+        <>
+          <h3> Post your coding questions below!</h3>
+          <p
+            className={`m-0 ${
+              characterCount === 280 || error ? "text-danger" : ""
+            }`}
+          >
+            Character Count: {characterCount}/280
+          </p>
+          <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
-            >
-                 <div className="col-12 col-lg-9">
+          >
+            <div className="col-12 col-lg-9">
               <textarea
                 name="postText"
                 placeholder="Post your code here!"
@@ -85,18 +88,16 @@ const PostForm = () => {
                 {error.message}
               </div>
             )}
-            </form>
-            </>
-        ) : (
-            <p>
-            You need to be logged in to post your code. Please{" "}
-            <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-          </p>
-        )}
+          </form>
+        </>
+      ) : (
+        <p>
+          You need to be logged in to post your code. Please{" "}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        </p>
+      )}
     </div>
-  )
-
-
+  );
 };
 
 export default PostForm;
