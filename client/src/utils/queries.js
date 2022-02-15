@@ -42,3 +42,19 @@ export const QUERY_SINGLE_POST = gql`
     }
   }
 `;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      username
+      email
+      posts {
+        _id
+        postText
+        postAuthor
+        createdAt
+      }
+    }
+  }
+`;
