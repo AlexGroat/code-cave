@@ -19,15 +19,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  comments: {
-    type: Schema.Types.ObjectId,
-    ref: 'Comment',
-  },
-
-  posts: {
-    type: Schema.Types.ObjectId,
-    ref: 'Post'
-  }
+  posts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Post',
+    },
+  ],
 });
 
 userSchema.pre('save', async function (next) {

@@ -6,7 +6,7 @@ import * as IoIcons from "react-icons/io";
 import * as BiIcons from "react-icons/bi";
 import * as BsIcons from "react-icons/bs";
 import { IconContext } from "react-icons/lib";
-import "./Navbar.css";
+import "./navbar.css";
 
 import Auth from "../../utils/auth";
 
