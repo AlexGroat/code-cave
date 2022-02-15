@@ -1,33 +1,27 @@
-const { gql } = require("apollo-server-express");
-console.log('Start type defs')
+const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type User {
-    _id: ID!
-    username: String!
-    email: String!
-    password: String!
+    _id: ID
+    username: String
+    email: String
+    password: String
+    posts: [Post]
   }
 
   type Post {
-    _id: ID!
-    postText: String!
+    _id: ID
+    postText: String
+    postAuthor: String
     createdAt: String
-    postAuthor: User
     comments: [Comment]
-    likes: [Like]
   }
 
   type Comment {
-    _id: ID!
-    commentAuthor: String!
-    commentText: String!
+    _id: ID
+    commentText: String
+    commentAuthor: String
     createdAt: String
-  }
-
-  type Like {
-    _id: ID!
-    username: String!
   }
 
   type Auth {
@@ -37,22 +31,20 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user(_id: ID!): User
-    posts: [Post]
-    post(postId: ID!) : Post
+    user(username: String!): User
+    posts(username: String): [Post]
+    post(postId: ID!): Post
+    me: User
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addPost(postText: String!) : Post
-    removePost(postId: ID!) : String
-    addComment(postId: String!, commentAuthor: String! body: String!) : Post
-    removeComment(postId: String!, commentID: ID!): Post
-    likePost(postId: ID!): Post
+    addPost(postText: String!): Post
+    addComment(postId: ID!, commentText: String!): Post
+    removePost(postId: ID!): Post
+    removeComment(postId: ID!, commentId: ID!): Post
   }
 `;
-
-console.log('end type defs')
 
 module.exports = typeDefs;
