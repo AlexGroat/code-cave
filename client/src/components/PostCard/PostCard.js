@@ -37,10 +37,10 @@ const PostSection = ({
               <p>{post?.postText}</p>
             </div>
             <Link
-              className="btn btn-primary btn-block btn-squared"
+              className="btn btn-primary btn-block"
               to={`/posts/${post?._id}`}
             >
-              Join the discussion on this thought.
+              Know the solution? Solve the problem here!
             </Link>
           </div>
         ))}

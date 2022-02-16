@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth";
+import './postform.css'
 
 import { ADD_POST } from "../../utils/mutations";
 import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
@@ -50,11 +51,12 @@ const PostForm = () => {
           >
             Character Count: {characterCount}/280
           </p>
+          <div className="mt-2 code-input">
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9">
+            <div className="col-12 col-lg-9 code-input">
               <textarea
                 name="postText"
                 placeholder="Post your code here!"
@@ -76,6 +78,7 @@ const PostForm = () => {
               </div>
             )}
           </form>
+          </div>
         </>
       ) : (
         <p>
