@@ -59,10 +59,7 @@ function App() {
         <Route exact path="/profiles/:username">
           <Profile />
         </Route>
-        <Route exact path="/me">
-          <Profile />
-        </Route>
-      </Router>
+           </Router>
     </ApolloProvider>
   );
 }

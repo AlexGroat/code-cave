@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
-// import PostForm from "../../components/PostForm";
+import PostForm from "../../components/PostForm/PostForm";
 import PostCard from "../../components/PostCard/PostCard";
 
 import { QUERY_ME, QUERY_USER } from "../../utils/queries";
@@ -18,27 +18,33 @@ const Profile = () => {
 
   const user = data?.me || data?.user || {};
 
-  // if the current user logged in matches the get profile for the post it will redirect to me page
-  if (Auth.loggedIn() && Auth.getProfile().data.username === currentUser) {
-    return <Redirect to="/me" />;
-  }
 
   return (
     <div>
-      <div className="flex-row">
-        <h2 className="profile-header">
-          You are now viewing {currentUser ? `${user.username}'s` : "your"}{" "}
-          profile.
-        </h2>
-      </div>
+    <div className="flex-row justify-center mb-3">
+      <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+        Welcome to {currentUser ? `${user.username}'s` : 'your'} profile.
+      </h2>
 
-      <div className="user-posts">
-        <PostCard 
-        posts={user.posts}
-        title={`${user.username}`} 
+      <div className="col-12 col-md-10 mb-5">
+        <PostCard
+          posts={user.posts}
+          title={`${user.username}'s thoughts...`}
+          showTitle={false}
+          showUsername={false}
         />
       </div>
+      {!currentUser && (
+        <div
+          className="col-12 col-md-10 mb-3 p-3"
+          style={{ border: '1px dotted #1a1a1a' }}
+        >
+          <PostForm />
+          
+        </div>
+      )}
     </div>
+  </div>
   );
 };
 
