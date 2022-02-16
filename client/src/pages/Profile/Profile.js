@@ -16,7 +16,7 @@ const Profile = () => {
     variables: { username: currentUser },
   });
 
-  const user = data?.me || data?.user || {};
+  const user = data?.user || {};
 
   return (
     <div>
