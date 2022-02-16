@@ -42,7 +42,7 @@ const PostForm = () => {
     <div>
       {Auth.loggedIn() ? (
         <>
-          <h3> Post your coding questions below!</h3>
+          <h3> Post your coding questions!</h3>
           <p
             className={`m-0 ${
               characterCount === 280 || error ? "text-danger" : ""
