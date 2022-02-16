@@ -18,6 +18,7 @@ const Profile = () => {
 
   const user = data?.me || data?.user || {};
 
+  // if the current user logged in matches the get profile for the post it will redirect to me page
   if (Auth.loggedIn() && Auth.getProfile().data.username === currentUser) {
     return <Redirect to="/me" />;
   }
