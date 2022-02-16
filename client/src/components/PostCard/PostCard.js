@@ -13,7 +13,7 @@ const PostSection = ({
       {showHeader && <h3>{header}</h3>}
       {posts &&
         posts.map((post) => (
-          <div key={post?._id} className="card mb-3">
+          <div key={post?._id} className="card mb-2 card-section">
             <h4 className="card-header bg-primary text-light p-2 m-0">
               {showPostAuthor ? (
                 <Link
