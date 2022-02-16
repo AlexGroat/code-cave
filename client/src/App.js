@@ -54,7 +54,7 @@ function App() {
          <Route exact path="/">
           <Home />
         </Route>
-        {/*<Route exact path="/profile">
+        {/*<Route exact path="/profiles/:username">
           <Profile />
         </Route>
         <Route exact path="/posts/:postId">

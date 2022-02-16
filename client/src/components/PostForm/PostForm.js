@@ -43,7 +43,7 @@ const PostForm = () => {
     <div>
       {Auth.loggedIn() ? (
         <>
-          <h3> Post your coding questions!</h3>
+          <h3 className="post-header"> Post your coding questions!</h3>
           <p
             className={`m-0 ${
               characterCount === 280 || error ? "text-danger" : ""
@@ -56,7 +56,7 @@ const PostForm = () => {
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9 code-input">
+            <div className="code-input">
               <textarea
                 name="postText"
                 placeholder="Post your code here!"
