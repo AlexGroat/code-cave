@@ -1,8 +1,13 @@
 import PostForm from "../../components/PostForm/PostForm";
+import PostCard from '../../components/PostCard/PostCard';
+import { useQuery } from "@apollo/client";
+import { QUERY_POSTS } from "../../utils/queries";
 
 import "./home.css";
 
 export default function Home() {
+  const { loading, data } = useQuery(QUERY_POSTS);
+  const posts = data?.posts || [];
     return (
         <>
         <div className="home-container">
@@ -10,10 +15,11 @@ export default function Home() {
       <PostForm />
       </div>
       <div className="column-2 col-5" style={{backgroundColor: "red"}}>
-      middle row for feed
+      <PostCard posts={posts} />
+      hrllo
       </div>
       <div className="column-2 col-5" style={{backgroundColor: "yellow"}}>
-      middle row for feed
+      right for new api
       </div>
         </div>
         </>
