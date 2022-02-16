@@ -12,7 +12,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import NavBar from "./components/NavBar/Navbar";
 import Signup from "./pages/Signup/Signup";
-// import Profile from './pages/Profile/Profile';
+import Profile from './pages/Profile/Profile';
 import SinglePost from "./pages/SinglePost/SinglePost";
 
 // Construct our main GraphQL API endpoint
@@ -56,9 +56,12 @@ function App() {
         <Route exact path="/posts/:postId">
           <SinglePost />
         </Route>
-        {/*<Route exact path="/profiles/:username">
+        <Route exact path="/profiles/:username">
           <Profile />
-        </Route> */}
+        </Route>
+        <Route exact path="/me">
+          <Profile />
+        </Route>
       </Router>
     </ApolloProvider>
   );
