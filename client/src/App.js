@@ -8,13 +8,12 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Home from './pages/Home/Home'
-import Login from './pages/Login/Login';
-import NavBar from './components/NavBar/Navbar'
-import Signup from './pages/Signup/Signup';
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import NavBar from "./components/NavBar/Navbar";
+import Signup from "./pages/Signup/Signup";
 // import Profile from './pages/Profile/Profile';
-import SingePost from './pages/SinglePost/SinglePost';
-
+import SinglePost from "./pages/SinglePost/SinglePost";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -44,23 +43,23 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <NavBar/>
+        <NavBar />
         <Route exact path="/login">
           <Login />
         </Route>
         <Route exact path="/signup">
           <Signup />
         </Route>
-         <Route exact path="/">
+        <Route exact path="/">
           <Home />
         </Route>
         <Route exact path="/posts/:postId">
-          <SingePost />
-  </Route>
+          <SinglePost />
+        </Route>
         {/*<Route exact path="/profiles/:username">
           <Profile />
         </Route> */}
-     </Router> 
+      </Router>
     </ApolloProvider>
   );
 }
