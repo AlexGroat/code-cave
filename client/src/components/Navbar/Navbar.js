@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_ME, QUERY_USER } from "../../utils/queries"
+import Auth from "../../utils/auth";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
@@ -8,13 +11,18 @@ import * as BsIcons from "react-icons/bs";
 import { IconContext } from "react-icons/lib";
 import "./navbar.css";
 
-import Auth from "../../utils/auth";
-
 const NavBar = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
+  const { username: currentUser } = useParams();
+
+  const { loading, data } = useQuery(currentUser ? QUERY_USER : QUERY_ME, {
+    variables: { username: currentUser },
+  });
+
+  const user = data?.me || data?.user || {};
 
   const [sidebar, setSidebar] = useState(false);
 
@@ -53,7 +61,7 @@ const NavBar = () => {
                     Home
                   </span>
                 </Link>
-                <Link className="sidebar-link" to="/profile">
+                <Link className="sidebar-link" to={`/profiles/${user.username}`}>
                   <span className="nav-text">
                     <BsIcons.BsFillPersonFill />
                     Profile
