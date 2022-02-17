@@ -1,5 +1,6 @@
 import PostForm from "../../components/PostForm/PostForm";
 import PostCard from "../../components/PostCard/PostCard";
+import NewsBar from '../../components/NewsBar/NewsBar';
 import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from "../../utils/queries";
 
@@ -26,7 +27,7 @@ export default function Home() {
           </div>
         </div>
         <div className="column-2 col-5" >
-          right for new api
+          <NewsBar />
         </div>
       </div>
     </>
