@@ -58,3 +58,12 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const GET_NEWS = gql`
+  query getNews {
+    articles {
+      title
+      url
+    }
+  }
+`;
