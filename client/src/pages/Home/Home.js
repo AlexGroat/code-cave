@@ -26,7 +26,7 @@ export default function Home() {
           />
           </div>
         </div>
-        <div className="column-2 col-5" >
+        <div className="column-3 col-5" >
           <NewsBar />
         </div>
       </div>
