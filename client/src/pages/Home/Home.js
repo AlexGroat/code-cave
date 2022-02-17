@@ -18,10 +18,12 @@ export default function Home() {
           <PostForm />
         </div>
         <div className="column-2 col-5" style={{ backgroundColor: "red" }}>
+          <div className="posts">
           <PostCard
             posts={posts}
             header="Check out the coding questions below!"
           />
+          </div>
         </div>
         <div className="column-2 col-5" style={{ backgroundColor: "yellow" }}>
           right for new api

@@ -1,8 +1,14 @@
 .home-container {
- width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   height: 100vh;
+}
+
+.posts {
+  margin-top: 20px;
+  width: 100%;
+  overflow: hidden;
 }
 
 @media (max-width: 800px) {
