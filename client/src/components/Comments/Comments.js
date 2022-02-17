@@ -9,11 +9,11 @@ const Comments = ({ comments = [] }) => {
       >
         Comments
       </h3>
-      {/* <div className="flex-row my-4">
+      <div className="flex-row my-4">
         {comments &&
           comments.map((comment) => (
             <div key={comment._id} className="col-12 mb-3 pb-3">
-              <div className="p-3 bg-dark text-light">
+              <div className="p-3 bg-info text-light">
                 <h5 className="card-header">
                   {comment.commentAuthor} commented{' '}
                   <span style={{ fontSize: '0.825rem' }}>
@@ -24,7 +24,7 @@ const Comments = ({ comments = [] }) => {
               </div>
             </div>
           ))}
-      </div> */}
+      </div>
     </>
   )
 }
