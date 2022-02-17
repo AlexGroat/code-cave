@@ -14,7 +14,7 @@ const PostSection = ({
       {posts &&
         posts.slice(0,5).map((post) => (
           <div key={post?._id} className="card mb-2 card-section">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
+            <h4 className="card-header bg-info text-dark">
               {showPostAuthor ? (
                 <Link
                   className="text-light"
@@ -22,13 +22,13 @@ const PostSection = ({
                 >
                   {post?.postAuthor} <br />
                   <span style={{ fontSize: "1rem" }}>
-                    had this thought on {post?.createdAt}
+                    posted this coding question on {post?.createdAt}
                   </span>
                 </Link>
               ) : (
                 <>
                   <span style={{ fontSize: "1rem" }}>
-                    You had this thought on {post?.createdAt}
+                    You posted this coding question on {post?.createdAt}
                   </span>
                 </>
               )}

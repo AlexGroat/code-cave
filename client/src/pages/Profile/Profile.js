@@ -30,7 +30,6 @@ const Profile = () => {
             className="col-12 col-md-10 mb-3 p-3"
             style={{ border: "1px dotted #1a1a1a" }}
           >
-            <PostForm />
             <div className="col-12 col-md-10 mb-5">
               <PostCard
                 posts={user.posts}
@@ -42,10 +41,11 @@ const Profile = () => {
           </div>
         ) : (
           <>
-             <p>
-          You need to be logged in to view {user.username}'s coding posts. Please{" "}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
+            <p>
+              You need to be logged in to view {user.username}'s coding posts.
+              Please <Link to="/login">login</Link> or{" "}
+              <Link to="/signup">signup.</Link>
+            </p>
           </>
         )}
       </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../../utils/auth";
-import './postform.css'
+import "./postform.css";
 
 import { ADD_POST } from "../../utils/mutations";
 import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
@@ -11,8 +11,8 @@ const PostForm = () => {
   const [postText, setPostText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addPost, { error }] = useMutation(ADD_POST)
-   
+  const [addPost, { error }] = useMutation(ADD_POST);
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -52,33 +52,30 @@ const PostForm = () => {
             Character Count: {characterCount}/280
           </p>
           <div className="mt-2 code-input">
-          <form
-            className="flex-row justify-center justify-space-between-md align-center"
-            onSubmit={handleFormSubmit}
-          >
-            <div className="code-input">
-              <textarea
-                name="postText"
-                placeholder="Post your code here!"
-                value={postText}
-                className="form-input w-100"
-                style={{ lineHeight: "1.5", resize: "vertical" }}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
-                Post your code!
-              </button>
-            </div>
-            {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
-                {error.message}
+            <form
+              className="flex-row justify-center justify-space-between-md align-center"
+              onSubmit={handleFormSubmit}
+            >
+              <div className="code-input">
+                <textarea
+                  name="postText"
+                  placeholder="Post your code here!"
+                  value={postText}
+                  className="form-input w-100"
+                  style={{ lineHeight: "1.5", resize: "vertical" }}
+                  onChange={handleChange}
+                ></textarea>
               </div>
-            )}
-          </form>
+            </form>
+            <button className="btn btn-primary btn-block py-3" type="submit">
+              Post your code!
+            </button>
           </div>
+          {error && (
+            <div className="col-12 my-3 bg-danger text-white p-3">
+              {error.message}
+            </div>
+          )}
         </>
       ) : (
         <p>
