@@ -7,8 +7,6 @@
 
 .posts {
   margin-top: 20px;
-  width: 100%;
-  overflow: hidden;
 }
 
 @media (max-width: 800px) {
@@ -19,4 +17,7 @@
   .home-container div {
     width: 100%;
   }
+
+ 
 }
+

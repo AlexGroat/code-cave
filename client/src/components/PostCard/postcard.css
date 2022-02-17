@@ -3,3 +3,12 @@
     margin-left: 50px;
     overflow: hidden;
 }
+
+
+@media (max-width: 800px) {
+ .card {
+     margin-left: 0px;
+     width: 80px;
+ }
+  
+  }
