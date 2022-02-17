@@ -38,7 +38,7 @@ if (loading) {
         style={{
           fontSize: '1.5rem',
           fontStyle: 'italic',
-          border: '2px dotted #1a1a1a',
+          border: '2px dashed #1775ee',
           lineHeight: '1.5',
         }}
       >
@@ -49,7 +49,7 @@ if (loading) {
     <div className="my-5">
       <Comments comments={post.comments} />
     </div>
-    <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
+    <div className="m-3 p-4" style={{ border: '1px dotted #1775ee' }}>
       <CommentForm postId={post._id} />
     </div>
   </div>
