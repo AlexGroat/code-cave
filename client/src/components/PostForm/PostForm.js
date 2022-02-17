@@ -66,10 +66,11 @@ const PostForm = () => {
                   onChange={handleChange}
                 ></textarea>
               </div>
-            </form>
-            <button className="btn btn-primary btn-block py-3" type="submit">
+              <button className="btn btn-primary btn-block py-3" type="submit">
               Post your code!
             </button>
+            </form>
+           
           </div>
           {error && (
             <div className="col-12 my-3 bg-danger text-white p-3">
