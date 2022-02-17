@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
-import NavBar from "./components/NavBar/Navbar";
+import NavBar from "./components/NavBar/NavBar1";
 import Signup from "./pages/Signup/Signup";
 import Profile from "./pages/Profile/Profile";
 import SinglePost from "./pages/SinglePost/SinglePost";
