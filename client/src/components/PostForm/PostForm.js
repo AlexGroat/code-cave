@@ -40,7 +40,7 @@ const PostForm = () => {
   };
 
   return (
-    <div>
+    <div className="add-post">
       {Auth.loggedIn() ? (
         <>
           <h3 className="post-header"> Post your coding questions!</h3>

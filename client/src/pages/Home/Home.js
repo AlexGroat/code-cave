@@ -13,11 +13,11 @@ export default function Home() {
       <div className="home-container">
         <div
           className="column-1 col-3"
-          style={{ backgroundColor: "lightblue" }}
+          
         >
           <PostForm />
         </div>
-        <div className="column-2 col-5" style={{ backgroundColor: "red" }}>
+        <div className="column-2 col-5" >
           <div className="posts">
           <PostCard
             posts={posts}
@@ -25,7 +25,7 @@ export default function Home() {
           />
           </div>
         </div>
-        <div className="column-2 col-5" style={{ backgroundColor: "yellow" }}>
+        <div className="column-2 col-5" >
           right for new api
         </div>
       </div>
