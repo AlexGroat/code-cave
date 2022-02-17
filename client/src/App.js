@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
-import NavBar from "./components/NavBar/NavBar";
+import Nav from "./components/Nav/Nav";
 import Signup from "./pages/Signup/Signup";
 import Profile from "./pages/Profile/Profile";
 import SinglePost from "./pages/SinglePost/SinglePost";
@@ -34,7 +34,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
+  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL AP
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
@@ -43,7 +43,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <NavBar />
+        <Nav />
         <Route exact path="/">
           <Home />
         </Route>
