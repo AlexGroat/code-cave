@@ -18,10 +18,10 @@ const NewsBar = () => {
         news.slice(0, 9).map((article) => (
           <div className="news-articles">
             <h4></h4>
-            <a href={article.url} target="_blank" className="article title">
+            <p className="article title">
               {article.title}
-            </a>
-            <p>Read more here</p>
+            </p>
+            <p>Read more <a href={article.url} target="_blank">here</a></p>
           </div>
         ))
       )}
