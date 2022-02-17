@@ -5,13 +5,26 @@ import Auth from "../../utils/auth";
 import "./postform.css";
 
 import { ADD_POST } from "../../utils/mutations";
-import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
+import { QUERY_POSTS } from "../../utils/queries";
 
 const PostForm = () => {
   const [postText, setPostText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addPost, { error }] = useMutation(ADD_POST);
+  const [addPost, { error }] = useMutation(ADD_POST, {
+    update(cache, { data: { addPost } }) {
+      try {
+        const { posts } = cache.readQuery({ query: QUERY_POSTS });
+
+        cache.writeQuery({
+          query: QUERY_POSTS,
+          data: { posts: [addPost, ...posts] },
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    },
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -67,10 +80,9 @@ const PostForm = () => {
                 ></textarea>
               </div>
               <button className="btn btn-primary btn-block py-3" type="submit">
-              Post your code!
-            </button>
+                Post your code!
+              </button>
             </form>
-           
           </div>
           {error && (
             <div className="col-12 my-3 bg-danger text-white p-3">

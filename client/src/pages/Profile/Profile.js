@@ -26,17 +26,9 @@ const Profile = () => {
         </h2>
 
         {Auth.loggedIn() ? (
-          <div
-            className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: "1px dotted #1a1a1a" }}
-          >
-            <div className="col-12 col-md-10 mb-5">
-              <PostCard
-                posts={user.posts}
-                title={`${user.username}'s posts...`}
-                showTitle={false}
-                showUsername={false}
-              />
+          <div>
+            <div>
+              <PostCard posts={user.posts} />
             </div>
           </div>
         ) : (
