@@ -24,7 +24,10 @@ if (loading) {
 }
 
   return (
-    <div>SinglePost</div>
+    <div className='single-post'>
+      Lol
+      
+    </div>
   )
 }
 
