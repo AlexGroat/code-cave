@@ -11,9 +11,9 @@
 }
 
 .news {
-  margin-top: 25px;
+  margin-top: 15px;
+  overflow: hidden;
 }
-
 @media (max-width: 800px) {
   .home-container {
     flex-direction: column;

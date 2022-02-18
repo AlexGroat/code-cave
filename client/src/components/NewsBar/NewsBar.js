@@ -10,7 +10,7 @@ const NewsBar = () => {
 
   return (
     <div>
-      <h3>View the latest news on Tech!</h3>
+      <p className="tech-new-header">View the latest news on Tech!</p>
 
       {loading ? (
         <div>Loading news</div>

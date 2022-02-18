@@ -21,6 +21,7 @@ const Comments = ({ comments = [] }) => {
                   </span>
                 </h5>
                 <p className="card-body">{comment.commentText}</p>
+                <p> {comment.length}</p>
               </div>
             </div>
           ))}

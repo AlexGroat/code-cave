@@ -4,45 +4,36 @@ import "./postcard.css";
 
 const PostSection = ({
   posts,
+  loading,
   header,
   showHeader = true,
   showPostAuthor = true,
 }) => {
   return (
     <div>
-      {posts &&
-        posts.slice(0, 5).map((post) => (
-          <div key={post?._id} className="card mb-2 post-card">
-            <h4 className="card-header bg-info text-dark">
-              {showPostAuthor ? (
-                <Link
-                  className="text-light"
-                  to={`/profiles/${post?.postAuthor}`}
-                >
-                  {post?.postAuthor} <br />
-                  <span style={{ fontSize: "1rem" }}>
-                    posted this coding question on {post?.createdAt}
-                  </span>
-                </Link>
-              ) : (
-                <>
-                  <span style={{ fontSize: "1rem" }}>
-                    You posted this coding question on {post?.createdAt}
-                  </span>
-                </>
-              )}
-            </h4>
-            <div className="card-body bg-light p-2">
-              <p>{post?.postText}</p>
-            </div>
+      {posts.slice(0, 5).map((post) => (
+        <div className="single-post">
+          <div className="post-header">
             <Link
-              className="btn btn-primary btn-block"
-              to={`/posts/${post?._id}`}
+              to={`/profiles/${post?.postAuthor}`}
+              style={{ textDecoration: "none" }}
             >
-              Know the solution? Solve the problem here!
+              <h1 className="post-author">{post?.postAuthor}</h1>
             </Link>
+            <p className="post-time">
+               {post?.createdAt}
+            </p>
           </div>
-        ))}
+          <div className="post-text">
+            <p>{post?.postText}</p>
+          </div>
+          <Link 
+          className="post-button btn"
+          to={`/posts/${post?._id}`}>
+            Solve the problem here!
+          </Link>
+        </div>
+      ))}
     </div>
   );
 };
