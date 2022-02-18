@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
 import { GET_NEWS } from "../../utils/queries";
+import * as BsIcons from "react-icons/bs";
 import "./newsbar.css";
 
 const NewsBar = () => {
@@ -15,13 +16,19 @@ const NewsBar = () => {
       {loading ? (
         <div>Loading news</div>
       ) : (
-        news.slice(0, 9).map((article) => (
+        news.slice(0, 8).map((article) => (
           <div className="news-articles">
-            <h4></h4>
-            <p className="article title">
-              {article.title}
-            </p>
-            <p>Read more <a href={article.url} target="_blank">here</a></p>
+            <div>
+              <div className="article-title">
+                <p >{article.title}</p>
+              </div>
+              <span className="read-more">
+                Read more{" "}
+                <a href={article.url} target="_blank" style={{textDecoration: 'none'}}>
+                  here<BsIcons.BsFillArrowLeftCircleFill />
+                </a>
+              </span>
+            </div>
           </div>
         ))
       )}
