@@ -91,10 +91,12 @@ const PostForm = () => {
           )}
         </>
       ) : (
-        <p>
-          You need to be logged in to post your code. Please{" "}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
+       <div className="login-or-signup">
+         <p>New to codecave or a returning coder?</p>
+         <Link to="/login">Login</Link>
+       {' '} or {' '}
+         <Link to="/signup">Signup</Link>
+         </div>
       )}
     </div>
   );
