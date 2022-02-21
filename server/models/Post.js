@@ -19,6 +19,11 @@ const postSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
+  likes: [
+    {
+      username: String,
+    }
+  ],
   comments: [
     {
       commentText: {
