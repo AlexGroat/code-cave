@@ -27,11 +27,10 @@ const PostSection = ({
           <div className="post-text">
             <p>{post?.postText}</p>
           </div>
-          <Link 
-          className="post-button btn"
-          to={`/posts/${post?._id}`}>
-            Solve the problem here!
+          <div className="post-button">        
+          <Link to={`/posts/${post?._id}`} >  Solve the problem here!
           </Link>
+          </div>
         </div>
       ))}
     </div>
