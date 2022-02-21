@@ -4,11 +4,7 @@ import "./postcard.css";
 
 
 const PostSection = ({
-  posts,
-  loading,
-  header,
-  showHeader = true,
-  showPostAuthor = true,
+  posts = []
 }) => {
   return (
     <div>
