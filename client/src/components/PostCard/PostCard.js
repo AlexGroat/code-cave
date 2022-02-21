@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./postcard.css";
 
+
 const PostSection = ({
   posts,
   loading,
@@ -20,16 +21,13 @@ const PostSection = ({
             >
               <h1 className="post-author">{post?.postAuthor}</h1>
             </Link>
-            <p className="post-time">
-               {post?.createdAt}
-            </p>
+            <p className="post-time">{post?.createdAt}</p>
           </div>
           <div className="post-text">
             <p>{post?.postText}</p>
           </div>
-          <div className="post-button">        
-          <Link to={`/posts/${post?._id}`} >  Solve the problem here!
-          </Link>
+          <div className="post-button">
+            <Link to={`/posts/${post?._id}`}> Solve the problem here!</Link>
           </div>
         </div>
       ))}

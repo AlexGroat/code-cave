@@ -123,22 +123,7 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    likePost: async (parent, { postId }, context)  => {
-      if (context.user) {
-        const post = await Post.findById(postId);
-        if (post) {
-          if (post.likes.find((like) => like.context.user !== username)) {
-            post.likes = post.likes.filter((like) => like.context.user !== username);
-          } else {
-            post.likes.push({
-              username,
-            });
-          }
-          await post.save();
-          return post
-        } else throw new UserError('Post not found');
-      }
-    }
+  
   },
 };
 

@@ -15,13 +15,7 @@ const typeDefs = gql`
     postAuthor: String
     createdAt: String
     comments: [Comment]
-    likes: [Like]
-    likeCount: Int
-  }
-
-  type Like {
-  id: ID
-  username: String
+    
   }
 
   type Comment {
@@ -29,6 +23,7 @@ const typeDefs = gql`
     commentText: String
     commentAuthor: String
     createdAt: String
+  
   }
 
   type Article {
