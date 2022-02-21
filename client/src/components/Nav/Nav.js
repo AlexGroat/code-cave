@@ -67,6 +67,12 @@ const NavBar = () => {
                     Profile
                   </span>
                 </Link>
+                <Link className="sidebar-link" to="/chat">
+                  <span className="nav-text">
+                    <AiIcons.AiOutlineMessage />
+                    Chat room
+                  </span>
+                </Link>
                 <Link className="sidebar-link" to="/">
                   <span className="nav-text" onClick={logout}>
                     <BiIcons.BiLogOut />

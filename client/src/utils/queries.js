@@ -67,3 +67,13 @@ export const GET_NEWS = gql`
     }
   }
 `;
+
+export const GET_MESSAGES = gql`
+  query {
+    messages {
+      _id
+      user
+      content
+    }
+  }
+`;
