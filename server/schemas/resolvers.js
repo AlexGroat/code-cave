@@ -4,6 +4,8 @@ const { signToken } = require("../utils/auth");
 const axios = require("axios");
 require("dotenv").config();
 
+const messages = [];
+
 const resolvers = {
   Query: {
     users: async () => {
@@ -32,6 +34,7 @@ const resolvers = {
       console.log(result);
       return result.data.articles;
     },
+    messages: () => messages,
   },
 
   Mutation: {
@@ -123,6 +126,15 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    postMessage: (parent, { user, content}) => {
+      const _id = messages.length;
+      messages.push({
+      _id,
+      user,
+      content
+      });
+      return _id
+    }
   },
 };
 

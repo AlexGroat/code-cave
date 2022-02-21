@@ -31,6 +31,12 @@ const typeDefs = gql`
     url: String
   }
 
+  type Message {
+    _id: ID!
+    user: String!
+    content: String!
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -43,6 +49,7 @@ const typeDefs = gql`
     post(postId: ID!): Post
     me: User
     articles: [Article]
+    messages: [Message]
 
   }
 
@@ -54,6 +61,7 @@ const typeDefs = gql`
     removePost(postId: ID!): Post
     removeComment(postId: ID!, commentId: ID!): Post
     likePost(postId: ID!) : Post
+    postMessage(user: String!, content: String!) : ID!
   }
 `;
 
