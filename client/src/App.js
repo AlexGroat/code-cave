@@ -14,6 +14,7 @@ import Nav from "./components/Nav/Nav";
 import Signup from "./pages/Signup/Signup";
 import Profile from "./pages/Profile/Profile";
 import SinglePost from "./pages/SinglePost/SinglePost";
+import Chat from './pages/Chat';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -58,6 +59,9 @@ function App() {
         </Route>
         <Route exact path="/profiles/:username">
           <Profile />
+        </Route>
+        <Route exact path="/chat">
+          <Chat />
         </Route>
       </Router>
     </ApolloProvider>

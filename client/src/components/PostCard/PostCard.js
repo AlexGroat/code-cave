@@ -23,7 +23,7 @@ const PostSection = ({
             <p>{post?.postText}</p>
           </div>
           <div className="post-button">
-            <Link to={`/posts/${post?._id}`}> Solve the problem here!</Link>
+            <Link to={`/posts/${post?._id}`}> Solve the problem here!!!</Link>
           </div>
         </div>
       ))}
