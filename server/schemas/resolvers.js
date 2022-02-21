@@ -2,7 +2,7 @@ const { AuthenticationError } = require("apollo-server-express");
 const { User, Post } = require("../models");
 const { signToken } = require("../utils/auth");
 const axios = require("axios");
-require('dotenv').config()
+require("dotenv").config();
 
 const resolvers = {
   Query: {
@@ -123,7 +123,6 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-  
   },
 };
 
